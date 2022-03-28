@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "NikeStoreApp",
+    "slug": "NikeStoreApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "NikeStoreApp"
+}
