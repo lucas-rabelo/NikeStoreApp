@@ -1,24 +1,40 @@
-import styled from 'styled-components/native';
-import { RFValue } from 'react-native-responsive-fontsize';
+import styled, { css } from 'styled-components/native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
+
+interface InputProps {
+    hasFilter: boolean;
+}
 
 export const Container = styled.View`
     flex-direction: row;
-    justify-content: space-between;
 
-    padding: ${RFValue(10)}px ${RFValue(12)}px;
-    margin: 0 ${RFValue(10)}px;
+    padding: ${RFValue(10)}px ${RFValue(15)}px;
+    margin: 0 ${RFValue(18)}px;
 
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: ${RFValue(8)}px;
 `;
 
-export const IconSearch = styled(Feather)`
-    font-size: ${RFValue(24)}px
-
+const IconsCss = css`
+    font-size: ${RFValue(24)}px;
     color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const InputText = styled.View`
-    
+export const IconSearch = styled(Feather)`
+    ${IconsCss}
+    margin-right: ${RFValue(12)}px;
+`;
+
+export const InputText = styled.TextInput<InputProps>`
+    width: ${({ hasFilter }) =>
+        hasFilter ? RFPercentage(34) : RFPercentage(38)}px;
+        
+    font-size: ${RFValue(14)}px;
+`;
+
+export const ButtonFilter = styled.TouchableOpacity``;
+
+export const IconFilter = styled(Feather)`
+    ${IconsCss}
 `;
