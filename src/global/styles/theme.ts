@@ -4,7 +4,7 @@ export default {
         secondary: "#3B3B3B",
 
         selected: "#89A9D1",
-        price: "#F3F3F3",
+        price: "#F1743C",
         like: "#DB4E5A",
         shape: "#F0F0F0",
         background: "#FFFFFF",

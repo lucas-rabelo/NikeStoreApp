@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 interface Props {
     checked: boolean;
@@ -8,8 +7,10 @@ interface Props {
 
 export const Container = styled.TouchableOpacity<Props>`
     align-items: center;
+    justify-content: center;
 
-    padding: ${RFValue(10)}px;
+    width: ${RFPercentage(12)}px;
+    height: ${RFPercentage(14)}px;
     margin-right: ${RFValue(10)}px;
     border-radius: ${RFValue(10)}px;
 
@@ -18,11 +19,11 @@ export const Container = styled.TouchableOpacity<Props>`
 `;
 
 export const Icon = styled.Image<Props>`
-    width: ${RFValue(18)}px;
-    height: ${RFValue(18)}px;
+    width: ${RFValue(28)}px;
+    height: ${RFValue(28)}px;
 
-    color: ${({ theme, checked }) =>
-        checked ? theme.colors.selected : theme.colors.background}}
+    tint-color: ${({ theme, checked }) =>
+        checked ? theme.colors.background : theme.colors.primary}}
 `;
 
 export const Label = styled.Text<Props>`

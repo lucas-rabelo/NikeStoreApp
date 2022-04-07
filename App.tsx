@@ -17,6 +17,7 @@ import { Register } from './src/pages/Register';
 import { ForgotPassword } from './src/pages/ForgotPassword';
 import { SignIn } from './src/pages/SignIn';
 import { Home } from './src/pages/Home';
+import { ProductDetail } from './src/pages/ProductDetail';
 
 export default function App() {
 
@@ -32,7 +33,7 @@ export default function App() {
     }
     return (
         <ThemeProvider theme={theme}>
-            <Home />
+            <ProductDetail />
         </ThemeProvider>
     );
 }

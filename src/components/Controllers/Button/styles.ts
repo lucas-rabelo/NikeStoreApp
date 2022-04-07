@@ -6,7 +6,6 @@ interface ButtonProps {
 }
 
 export const Container = styled.TouchableOpacity<ButtonProps>`
-    width: 100%;
     padding: ${RFValue(18)}px;
     border-radius: ${RFValue(12)}px;
 

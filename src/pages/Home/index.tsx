@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 // components
+import { Card } from '../../components/Controllers/Card';
 import { InputSearch } from '../../components/Controllers/InputSearch';
-import { CategorySelect } from '../../components/Controllers/CategorySelect';
+import { RecentlySeen } from '../../components/Lists/RecentlySeen';
+import { CategorySelect } from '../../components/Lists/CategorySelect';
 
 // styles
 import {
@@ -13,6 +15,7 @@ import {
 export function Home() {
 
     const [category, setCategory] = useState<string>('');
+    const [product, setProduct] = useState<string>('');
 
     function handleOpenModalFilter() {
 
@@ -22,17 +25,27 @@ export function Home() {
         categoryId === category ? setCategory('') : setCategory(categoryId);
     }
 
+    function handleFavoriteProduct(productId: string) {
+        productId === product ? setProduct('') : setProduct(productId);
+    }
+
     return (
         <Container>
             <Content>
                 <InputSearch
-                    hasFilter
                     onPress={handleOpenModalFilter}
                 />
+                <Card 
+                    flag="visa"
+                />
                 <CategorySelect
+                    categorySelected={category}
                     setCategory={handleSelectCategory}
                 />
-                {/* <RecentlySeen /> */}
+                <RecentlySeen 
+                    setProduct={handleFavoriteProduct}
+                    productSelected={product}
+                />
             </Content>
         </Container>
     );

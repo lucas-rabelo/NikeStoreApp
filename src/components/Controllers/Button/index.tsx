@@ -6,11 +6,13 @@ import { Container, Title } from './styles';
 interface Props extends TouchableOpacityProps {
     label: string;
     type: 'dark' | 'light';
+    width?: string;
 }
 
-export function Button({ label, type, ...rest }: Props) {
+export function Button({ label, width = '100%', type, ...rest }: Props) {
     return (
         <Container
+            style={[ width && { width: width } ]}
             type={type}
             {...rest}
         >
