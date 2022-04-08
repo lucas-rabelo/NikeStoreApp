@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { TextInput } from 'react-native';
 
 import {
     Container,
@@ -10,7 +11,7 @@ import {
 } from './styles';
 
 export function Counter() {
-    
+
     const [count, setCount] = useState<number>(0);
 
     function handleAddProduct() {
@@ -21,7 +22,7 @@ export function Counter() {
         setCount(oldState => oldState - 1);
     }
 
-    return(
+    return (
         <Container>
             <LessButton
                 onPress={handleRemoveProduct}
@@ -32,7 +33,7 @@ export function Counter() {
             <PlusButton
                 onPress={handleAddProduct}
             >
-                <PlusIcon name="plus"/>
+                <PlusIcon name="plus" />
             </PlusButton>
         </Container>
     );

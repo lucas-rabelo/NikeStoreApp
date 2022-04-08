@@ -1,5 +1,8 @@
 import styled from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import theme from '../../global/styles/theme';
 
 export const Container = styled.View`
     flex: 1;
@@ -38,7 +41,7 @@ export const Price = styled.Text`
     color: ${({ theme }) => theme.colors.background};
 
     font-size: ${RFValue(14)}px;
-    font-family: ${({theme}) => theme.fonts.subtitle};
+    font-family: ${({ theme }) => theme.fonts.subtitle};
 `;
 
 export const Description = styled.Text`
@@ -57,7 +60,18 @@ export const Divider = styled.View`
     opacity: .4;
 `;
 
-export const Footer = styled.View`
+export const Footer = styled.View.attrs({
+    // style: {
+    //     shadowColor: "#000",
+    //     shadowOffset: {
+    //         width: 0,
+    //         height: 11,
+    //     },
+    //     shadowOpacity: 0.55,
+    //     shadowRadius: 14.78,
+    //     elevation: 22,
+    // }
+})`
     position: absolute;
     bottom: 0;
 
@@ -65,10 +79,11 @@ export const Footer = styled.View`
     justify-content: space-between;
     
     width: 100%;
-    height: ${RFValue(90)}px;
+    height: ${RFValue(100)}px;
 
-    padding: ${RFValue(15)}px ${RFValue(15)}px 0;
+    padding: ${RFValue(25)}px ${RFValue(15)}px 0;
 
+    border-top-right-radius: ${RFValue(20)}px;
     border-top-left-radius: ${RFValue(20)}px;
     background-color: ${({ theme }) => theme.colors.transparent};
 `;

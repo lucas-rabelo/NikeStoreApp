@@ -23,17 +23,18 @@ interface Props {
 }
 
 export function ProductDetail() {
-    
-    const [photo, setPhoto] = useState<string>('');
 
-    return(
+    const [photo, setPhoto] = useState<string>('');
+    const [count, setCount] = useState<number>(0);
+
+    return (
         <Container>
-            <HeaderProduct 
+            <HeaderProduct
                 isLiked={true}
             />
             <Content>
-                <CarouselPhotos 
-                    // showPhoto={photo}
+                <CarouselPhotos
+                // showPhoto={photo}
                 />
                 <Informations>
                     <Header>
@@ -47,8 +48,20 @@ export function ProductDetail() {
                     <Divider />
                 </Informations>
             </Content>
-            <Footer>
-                <Counter />
+            <Footer
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 20,
+                    },
+                    shadowOpacity: .3,
+                    shadowRadius: 14.78,
+                    elevation: 3,
+                }}
+            >
+                <Counter
+                />
                 <Button
                     width="50%"
                     label='Add to Cart'
