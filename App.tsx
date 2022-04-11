@@ -33,7 +33,7 @@ export default function App() {
     }
     return (
         <ThemeProvider theme={theme}>
-            <ProductDetail />
+            <Home />
         </ThemeProvider>
     );
 }

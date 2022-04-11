@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { products } from '../../../utils/products';
 
 // components
 import { Product, ProductProps } from '../../Controllers/Product';
@@ -15,54 +16,39 @@ export interface ProductListProps extends ProductProps {
 
 interface Props {
     productSelected: string;
+    categorySelected: string;
     setProduct: (productId: string) => void;
 }
 
-export function RecentlySeen({ productSelected, setProduct }: Props) {
+export function RecentlySeen({ categorySelected, productSelected, setProduct }: Props) {
     
-    const data: ProductListProps[] = [
-        {
-            id: "1",
-            price: 42.50,
-            name: "Nest Doorbell",
-            description: "",
-            category: "best_deal",
-            liked: false
-        },
-        {
-            id: "2",
-            price: 42.50,
-            name: "Nest Doorbell",
-            description: "",
-            category: "best_deal",
-            liked: true
-        },
-        {
-            id: "3",
-            price: 42.50,
-            name: "Nest Doorbell",
-            description: "",
-            category: "best_deal",
-            liked: true
-        },
-        {
-            id: "4",
-            price: 42.50,
-            name: "Nest Doorbell",
-            description: "",
-            category: "best_deal",
-            liked: false
-        }
-    ]
+    const [data, setData] = useState<ProductListProps[]>([]);
 
     function handleFavoriteProduct(productId: string) {
         setProduct(productId);
-        alert(productId)
+
+        data.find((product) => {
+            if( product.id === productId ) {
+                return product.liked = !product.liked;
+            }
+        });
     }
 
-    function handleOpenProduct(productId: string) {
-        
-    }
+    useEffect(() => {
+        if( categorySelected == '' ) {
+            setData(products);
+        } else {
+            setData(
+                products.filter(product => {
+                    if(product.category.indexOf(categorySelected) > -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+            )
+        }
+    }, [categorySelected]);
 
     return(
         <Container
@@ -70,11 +56,11 @@ export function RecentlySeen({ productSelected, setProduct }: Props) {
             keyExtractor={( item ) => item.id}
             renderItem={({ item }) => (
                 <Product
+                    id={item.id}
                     price={item.price}
                     name={item.name}
                     liked={item.liked}
-                    onPress={() => handleOpenProduct(item.id)}
-                    setLike={() => handleFavoriteProduct(item.id)}
+                    onPress={() => handleFavoriteProduct(item.id)}
                 />
             )}
         >

@@ -4,7 +4,8 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.TouchableOpacity`
     width: ${RFPercentage(25)}px;
-    margin-bottom: ${RFValue(10)}px;
+    margin-right: ${RFValue(5)}px;
+    margin-bottom: ${RFValue(15)}px;
 `;
 
 export const Header = styled.View`
@@ -30,7 +31,10 @@ export const PriceProduct = styled.Text`
     font-family: ${({theme}) => theme.fonts.described};
 `;
 
-export const PhotoProduct = styled.Image``;
+export const PhotoProduct = styled.Image`
+    width: 100%;
+    height: auto;
+`;
 
 export const Footer = styled.View`
     width: ${RFPercentage(20)}px;

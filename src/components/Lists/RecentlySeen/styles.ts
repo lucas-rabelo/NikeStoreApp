@@ -8,10 +8,12 @@ import { ProductListProps } from '.';
 export const Container = styled(
     FlatList as new (props: FlatListProps<ProductListProps>) => FlatList<ProductListProps>
 ).attrs({
-    showsHorizontalScrollIndicator: false,
     numColumns: 2,
+    showsVerticalScrollIndicator: false,
     contentContainerStyle: { paddingBottom: getBottomSpace() }
 })`
+
     margin-horizontal: ${RFValue(25)}px;
     margin-top: ${RFValue(25)}px;
+    height: 50%;
 `;

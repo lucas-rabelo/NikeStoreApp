@@ -42,7 +42,8 @@ export function Home() {
                     categorySelected={category}
                     setCategory={handleSelectCategory}
                 />
-                <RecentlySeen 
+                <RecentlySeen
+                    categorySelected={category}
                     setProduct={handleFavoriteProduct}
                     productSelected={product}
                 />
