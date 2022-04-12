@@ -57,6 +57,7 @@ export function RecentlySeen({ categorySelected, productSelected, setProduct }: 
             renderItem={({ item }) => (
                 <Product
                     id={item.id}
+                    photo={item.photo}
                     price={item.price}
                     name={item.name}
                     liked={item.liked}

@@ -8,7 +8,11 @@ export const Container = styled.View`
     align-items: center;
     justify-content: space-between;
 
-    margin: ${getStatusBarHeight() + RFValue(15)}px ${RFValue(20)}px ${RFValue(15)}px;
+    width: 100%;
+    padding: ${getStatusBarHeight() + RFValue(15)}px ${RFValue(20)}px ${RFValue(15)}px ${RFValue(20)}px; 
+
+    /* margin: ${getStatusBarHeight() + RFValue(15)}px ${RFValue(20)}px ${RFValue(15)}px; */
+    background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const Title = styled.Text`

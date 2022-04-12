@@ -1,6 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import {} from 'react'
+import { Text, TouchableOpacityProps } from 'react-native';
 
 import {
     Container,
@@ -17,16 +16,12 @@ import {
 export interface ProductProps extends TouchableOpacityProps {
     id: string;
     price: number;
-    photo?: string;
+    photo: number;
     name: string;
     liked?: boolean;
 }
 
-interface Props extends ProductProps {
-    setLike?: (productId: string) => void;
-}
-
-export function Product({ id, price, photo, name, liked, ...rest }: Props) {
+export function Product({ id, price, photo, name, liked, ...rest }: ProductProps) {
 
     // const navigate = useNavigation();
 
@@ -44,7 +39,7 @@ export function Product({ id, price, photo, name, liked, ...rest }: Props) {
                 <PriceProduct>$ {price}</PriceProduct>
                 <PhotoProduct
                     resizeMode='contain'
-                    source={{uri: photo}}
+                    source={photo}
                 />
             </Header>
             <Footer>
@@ -52,7 +47,7 @@ export function Product({ id, price, photo, name, liked, ...rest }: Props) {
                 <ButtonLike
                     {...rest}
                 >
-                    { liked ? <LikeAlt name="heart" /> : <Like name="heart" />}
+                    { liked ? <LikeAlt name="heart" /> : <Like name="heart" /> }
                 </ButtonLike>
             </Footer>
         </Container>

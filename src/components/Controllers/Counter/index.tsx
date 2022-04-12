@@ -19,7 +19,13 @@ export function Counter() {
     }
 
     function handleRemoveProduct() {
-        setCount(oldState => oldState - 1);
+        setCount(oldState => { 
+            if(oldState > 0) {
+                return oldState - 1
+            } else {
+                return oldState;
+            }
+         });
     }
 
     return (

@@ -32,8 +32,12 @@ export const PriceProduct = styled.Text`
 `;
 
 export const PhotoProduct = styled.Image`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
-    height: auto;
+    height: ${RFValue(50)}px;
 `;
 
 export const Footer = styled.View`

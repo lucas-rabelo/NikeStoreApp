@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // components
 import { Card } from '../../components/Controllers/Card';
@@ -12,10 +12,16 @@ import {
     Content
 } from './styles';
 
+import { products } from '../../utils/products';
+
 export function Home() {
 
     const [category, setCategory] = useState<string>('');
     const [product, setProduct] = useState<string>('');
+
+    useEffect(() => {
+        console.log(products);
+    }, []);
 
     function handleOpenModalFilter() {
 

@@ -12,8 +12,7 @@ export const Container = styled(
     showsVerticalScrollIndicator: false,
     contentContainerStyle: { paddingBottom: getBottomSpace() }
 })`
-
     margin-horizontal: ${RFValue(25)}px;
-    margin-top: ${RFValue(25)}px;
-    height: 50%;
+    margin-top: ${RFValue(2)}px;
+    height: 54%;
 `;

@@ -1,18 +1,18 @@
 import styled from 'styled-components/native'
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 import theme from '../../global/styles/theme';
 
 export const Container = styled.View`
     flex: 1;
-    justify-content: space-between;
     background-color: ${({ theme }) => theme.colors.shape};
 `;
 
 export const Content = styled.View``;
 
 export const Informations = styled.View`
-    height: 50%;
+    height: 100%;
+    margin-top: ${RFPercentage(22)}px;
     padding: ${RFValue(30)}px ${RFValue(20)}px 0;
     border-top-left-radius: ${RFValue(30)}px;
     border-top-right-radius: ${RFValue(30)}px;
@@ -27,14 +27,16 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-    width: 75%;
+    width: 73%;
     font-size:  ${RFValue(14)}px;
     font-family: ${({ theme }) => theme.fonts.title};
 `;
 
 export const Price = styled.Text`
-    border-radius: ${RFValue(15)}px; 
-    padding: ${RFValue(12)}px ${RFValue(20)}px;
+    height: ${RFValue(45)}px;
+
+    border-radius: ${RFValue(15)}px;
+    padding: ${RFValue(12)}px ${RFValue(15)}px;
 
     background-color: ${({ theme }) => theme.colors.price};
     color: ${({ theme }) => theme.colors.background};
@@ -59,18 +61,7 @@ export const Divider = styled.View`
     opacity: .4;
 `;
 
-export const Footer = styled.View.attrs({
-    // style: {
-    //     shadowColor: "#000",
-    //     shadowOffset: {
-    //         width: 0,
-    //         height: 11,
-    //     },
-    //     shadowOpacity: 0.55,
-    //     shadowRadius: 14.78,
-    //     elevation: 22,
-    // }
-})`
+export const Footer = styled.View`
     position: absolute;
     bottom: 0;
 
