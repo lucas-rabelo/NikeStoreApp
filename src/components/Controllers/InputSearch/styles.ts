@@ -3,14 +3,19 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
 interface InputProps {
-    hasFilter: boolean;
+    hasFilter?: boolean;
+    isFocused?: boolean;
 }
 
-export const Container = styled.View`
+export const Container = styled.View<InputProps>`
     flex-direction: row;
 
     padding: ${RFValue(10)}px ${RFValue(15)}px;
-    margin: 0 ${RFValue(18)}px;
+
+    margin-horizontal: ${({ isFocused }) =>
+        isFocused ? 0 : 18}px;
+        
+    margin-bottom: 0;
 
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: ${RFValue(8)}px;

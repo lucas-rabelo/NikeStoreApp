@@ -20,6 +20,8 @@ export const ForgotArea = styled.TouchableOpacity.attrs({
     padding: ${RFValue(15)}px ${RFValue(50)}px;
 `;
 
+export const ForgotButton = styled.TouchableOpacity``;
+
 export const Subtitle = styled.Text`
     text-align: center;
 

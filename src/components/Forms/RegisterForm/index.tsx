@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+// props
+import { NavigationScreenProps, ScreensProps } from '../../../routes/stack.routes';
 
 // components
 import { Button } from '../../Controllers/Button'
@@ -13,13 +18,15 @@ import {
 
 export function RegisterForm() {
 
+    const navigation = useNavigation<NavigationScreenProps>();
+
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [pass, setPass] = useState<string>('');
     const [confirm, setConfirm] = useState<string>('');
 
     function handleSubmitForm() {
-
+        navigation.navigate('SignIn');
     }
 
     return (

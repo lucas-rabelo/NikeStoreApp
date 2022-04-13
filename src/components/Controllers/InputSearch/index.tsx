@@ -1,6 +1,5 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { View, TextInputProps } from 'react-native';
 
 import {
     Container,
@@ -12,17 +11,20 @@ import {
 
 interface Props extends TextInputProps {
     hasFilter?: boolean;
+    isFocused?: boolean;
     onPress?: () => void;
 }
 
-export function InputSearch({ hasFilter = false, onPress, ...rest }: Props) {
+export function InputSearch({ hasFilter = false, isFocused = false, onPress, ...rest }: Props) {
 
     function handleOpenModalFilter() {
-
+        
     }
 
     return (
-        <Container>
+        <Container
+            isFocused={isFocused}
+        >
             <IconSearch name="search" />
             <InputText
                 placeholder="Pesquise aqui..."

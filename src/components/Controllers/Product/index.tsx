@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacityProps } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationScreenProps } from '../../../routes/stack.routes';
 
 import {
     Container,
@@ -23,14 +25,13 @@ export interface ProductProps extends TouchableOpacityProps {
 
 export function Product({ id, price, photo, name, liked, ...rest }: ProductProps) {
 
-    // const navigate = useNavigation();
+    const navigation = useNavigation<NavigationScreenProps>();
 
     function handleOpenProduct(productId: string) {
-        // navigate.navigation('ProductDetail', { productId });
-        alert('Abriu o produto: '+ productId);
+        navigation.navigate('ProductDetail', { productId });
     }
 
-    return(
+    return (
         <Container
             activeOpacity={.7}
             onPress={() => handleOpenProduct(id)}
@@ -47,7 +48,7 @@ export function Product({ id, price, photo, name, liked, ...rest }: ProductProps
                 <ButtonLike
                     {...rest}
                 >
-                    { liked ? <LikeAlt name="heart" /> : <Like name="heart" /> }
+                    {liked ? <LikeAlt name="heart" /> : <Like name="heart" />}
                 </ButtonLike>
             </Footer>
         </Container>

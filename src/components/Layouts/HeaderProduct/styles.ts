@@ -22,6 +22,8 @@ export const Title = styled.Text`
 
 export const ButtonLike = styled.TouchableOpacity``;
 
+export const BackButton = styled.TouchableOpacity``;
+
 const Icons = css`
     font-size: ${RFValue(24)}px;
 `;

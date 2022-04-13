@@ -23,10 +23,10 @@ export function Category({ label, icon, checked, ...rest }: CategoryProps) {
             activeOpacity={.7}
             {...rest}
         >
-            <Icon
+            {/* <Icon
                 source={icon}
                 checked={checked}
-            />
+            /> */}
             <Label checked={checked} >{label}</Label>
         </Container>
     );

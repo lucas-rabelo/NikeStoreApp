@@ -28,7 +28,7 @@ export const PriceProduct = styled.Text`
     color: ${({ theme }) => theme.colors.background};
 
     font-size: ${RFValue(12)}px;
-    font-family: ${({theme}) => theme.fonts.described};
+    font-family: ${({ theme }) => theme.fonts.described};
 `;
 
 export const PhotoProduct = styled.Image`
@@ -47,13 +47,16 @@ export const Footer = styled.View`
     margin-bottom: ${RFValue(10)}px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text.attrs({
+    numberOfLines: 2
+})`
+    width: 80%;
     font-size: ${RFValue(12)}px;
 `;
 
 export const ButtonLike = styled.TouchableOpacity`
     position: absolute;
-    bottom: ${RFValue(-2)}px;
+    top: ${RFValue(2)}px;
     right: ${RFValue(5)}px;
 `;
 

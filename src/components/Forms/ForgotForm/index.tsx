@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationScreenProps } from '../../../routes/stack.routes';
 
 // components
 import { Button } from '../../Controllers/Button'
@@ -13,10 +15,12 @@ import {
 
 export function ForgotForm() {
 
+    const navigation = useNavigation<NavigationScreenProps>();
+
     const [email, setEmail] = useState<string>('');
 
     function handleSubmitForm() {
-
+        navigation.navigate('Preload');
     }
 
     return (

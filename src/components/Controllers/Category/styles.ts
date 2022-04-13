@@ -10,7 +10,7 @@ export const Container = styled.TouchableOpacity<Props>`
     justify-content: center;
 
     width: ${RFPercentage(12)}px;
-    height: ${RFPercentage(14)}px;
+    height: ${RFPercentage(6)}px;
     margin-right: ${RFValue(10)}px;
     border-radius: ${RFValue(10)}px;
 
@@ -28,9 +28,10 @@ export const Icon = styled.Image<Props>`
 
 export const Label = styled.Text<Props>`
     font-size: ${RFValue(12)}px;
+    font-family: ${({ theme }) => theme.fonts.title}
     text-align: center;
 
-    margin-top: ${RFValue(10)}px;
+    /* margin-top: ${RFValue(10)}px; */
 
     color: ${({ theme, checked }) =>
         checked ? theme.colors.background : theme.colors.primary};
