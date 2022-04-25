@@ -8,7 +8,8 @@ export default {
         like: "#DB4E5A",
         shape: "#F0F0F0",
         background: "#FFFFFF",
-        transparent: "transparent"
+        transparent: "transparent",
+        overlay: 'rgba(0,0,0,0.7)'
     },
     fonts: {
         title: "Roboto_700Bold",

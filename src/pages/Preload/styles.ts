@@ -33,6 +33,7 @@ export const Subtitle = styled.Text`
     font-size: ${RFValue(12)}px;
     color: ${({ theme }) => theme.colors.background}
     opacity: .5;
+    font-family: ${({ theme }) => theme.fonts.described};
 `;
 
 export const ImageContent = styled.Image.attrs({

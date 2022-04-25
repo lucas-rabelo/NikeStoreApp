@@ -12,16 +12,11 @@ import {
     Content
 } from './styles';
 
-import { products } from '../../utils/products';
-
 export function Home() {
 
     const [category, setCategory] = useState<string>('');
     const [product, setProduct] = useState<string>('');
-
-    useEffect(() => {
-        console.log(products);
-    }, []);
+    const [search, setSearch] = useState<string>('');
 
     function handleOpenModalFilter() {
 
@@ -39,6 +34,8 @@ export function Home() {
         <Container>
             <Content>
                 <InputSearch
+                    onChangeText={(t) => setSearch(t)}
+                    value={search}
                     onPress={handleOpenModalFilter}
                 />
                 <Card 
@@ -49,6 +46,7 @@ export function Home() {
                     setCategory={handleSelectCategory}
                 />
                 <RecentlySeen
+                    search={search}
                     categorySelected={category}
                     setProduct={handleFavoriteProduct}
                     productSelected={product}

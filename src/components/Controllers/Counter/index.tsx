@@ -10,34 +10,23 @@ import {
     LessIcon,
 } from './styles';
 
-export function Counter() {
+interface Props {
+    setPlus: () => void;
+    setLess: () => void;
+    count: number;
+}
 
-    const [count, setCount] = useState<number>(0);
-
-    function handleAddProduct() {
-        setCount(oldState => oldState + 1);
-    }
-
-    function handleRemoveProduct() {
-        setCount(oldState => { 
-            if(oldState > 0) {
-                return oldState - 1
-            } else {
-                return oldState;
-            }
-         });
-    }
-
+export function Counter({ setLess, setPlus, count }: Props) {
     return (
         <Container>
             <LessButton
-                onPress={handleRemoveProduct}
+                onPress={setLess}
             >
                 <LessIcon />
             </LessButton>
             <Count>{count}</Count>
             <PlusButton
-                onPress={handleAddProduct}
+                onPress={setPlus}
             >
                 <PlusIcon name="plus" />
             </PlusButton>

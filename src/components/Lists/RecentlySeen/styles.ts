@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { FlatList, FlatListProps } from 'react-native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 import { ProductListProps } from '.';
 
@@ -12,6 +12,7 @@ export const Container = styled(
     showsVerticalScrollIndicator: false,
     contentContainerStyle: { paddingBottom: getBottomSpace() }
 })`
+    margin-top: ${RFValue(15)}px;
     margin-horizontal: ${RFValue(25)}px;
-    height: 60%;
+    height: ${RFPercentage(60)}px;
 `;

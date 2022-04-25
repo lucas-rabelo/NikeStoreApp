@@ -16,11 +16,12 @@ export interface ProductListProps extends ProductProps {
 
 interface Props {
     productSelected: string;
-    categorySelected: string;
+    categorySelected?: string;
     setProduct: (productId: string) => void;
+    search?: string;
 }
 
-export function RecentlySeen({ categorySelected, productSelected, setProduct }: Props) {
+export function RecentlySeen({ search, categorySelected, productSelected, setProduct }: Props) {
     
     const [data, setData] = useState<ProductListProps[]>([]);
 
@@ -35,12 +36,12 @@ export function RecentlySeen({ categorySelected, productSelected, setProduct }: 
     }
 
     useEffect(() => {
-        if( categorySelected == '' ) {
+        if( search == '' ) {
             setData(products);
         } else {
             setData(
                 products.filter(product => {
-                    if(product.category.indexOf(categorySelected) > -1) {
+                    if(product.name.indexOf(search) > -1) {
                         return true;
                     } else {
                         return false;
@@ -48,11 +49,30 @@ export function RecentlySeen({ categorySelected, productSelected, setProduct }: 
                 })
             )
         }
-    }, [categorySelected]);
+
+
+        if( categorySelected ) {
+            if( categorySelected == '' ) {
+                setData(products);
+            } else {
+                setData(
+                    products.filter(product => {
+                        if(product.category.indexOf(categorySelected) > -1) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    })
+                )
+            }
+        }
+
+    }, [search, categorySelected]);
 
     return(
         <Container
             data={data}
+            
             keyExtractor={( item ) => item.id}
             renderItem={({ item }) => (
                 <Product
@@ -64,7 +84,6 @@ export function RecentlySeen({ categorySelected, productSelected, setProduct }: 
                     onPress={() => handleFavoriteProduct(item.id)}
                 />
             )}
-        >
-        </Container>
+        />
     );
 }
