@@ -14,7 +14,11 @@ import {
     ButtonArea,
     ForgotArea,
     ForgotButton,
-    Subtitle
+    Subtitle,
+    OtherSignInArea,
+    ButtonIcon,
+    GoogleIcon,
+    FacebookIcon,
 } from './styles';
 
 export function SignInForm() {
@@ -65,6 +69,14 @@ export function SignInForm() {
                         </ForgotButton>
                     </ForgotArea>
                 </ButtonArea>
+                <OtherSignInArea>
+                    <ButtonIcon>
+                        <GoogleIcon name="google" />
+                    </ButtonIcon>
+                    <ButtonIcon>
+                        <FacebookIcon name="facebook-square" />
+                    </ButtonIcon>
+                </OtherSignInArea>
             </Content>
         </Container>
     );

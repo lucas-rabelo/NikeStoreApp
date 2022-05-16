@@ -4,6 +4,8 @@ import { UserProps } from "../configs/interfaces";
 
 interface AuthContextData {
     user: UserProps;
+    handleGoogleSignIn: () => Promise<void>;
+    handleFacebookSignIn: () => Promise<void>;
 }
 
 interface AuthProviderProps {
@@ -22,10 +24,28 @@ function AuthProvider({ children }: AuthProviderProps) {
         );
     }, []);
 
+    async function handleGoogleSignIn() {
+        try {
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function handleFacebookSignIn() {
+        try {
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <AuthContext.Provider
             value={{
-                user
+                user,
+                handleGoogleSignIn,
+                handleFacebookSignIn
             }}
         >
             {children}

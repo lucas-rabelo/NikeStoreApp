@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, Ionicons } from '@expo/vector-icons';
@@ -30,28 +31,28 @@ const TabRoutes: React.FC = () => (
             tabBarActiveTintColor: primary,
             tabBarInactiveTintColor: 'gray',
         }}
-        
+
     >
-        <Screen 
-            name="Principal" 
+        <Screen
+            name="Principal"
             component={Home}
             options={{
                 tabBarIcon: ({ color }) => (
-                    <Feather name="home" size={24} color={color}/>
+                    <Feather name="home" size={24} color={color} />
                 ),
             }}
         />
-        <Screen 
-            name="ListProducts" 
+        <Screen
+            name="ListProducts"
             component={ListProducts}
             options={{
                 tabBarIcon: ({ color }) => (
-                    <Ionicons name="apps-outline" size={24} color={color}/>
+                    <Ionicons name="apps-outline" size={24} color={color} />
                 ),
             }}
         />
-        <Screen 
-            name="Cart" 
+        <Screen
+            name="Cart"
             component={Cart}
             options={{
                 tabBarBadge: 5,
@@ -61,22 +62,22 @@ const TabRoutes: React.FC = () => (
                     color: background
                 },
                 tabBarIcon: ({ color }) => (
-                    <Ionicons name="cart" size={24} color={color}/>
+                    <Ionicons name="cart" size={24} color={color} />
                 ),
             }}
         />
-        <Screen 
-            name="Profile" 
-            component={Profile} 
+        <Screen
+            name="Profile"
+            component={Profile}
             options={{
                 tabBarIcon: () => (
                     <View style={styles.profileContainer}>
-                        <Image 
+                        <Image
                             style={styles.image}
                             source={{ uri: 'https://www.github.com/lucas-rabelo.png' }}
                         />
                     </View>
-                )  
+                )
             }}
         />
     </Navigator>

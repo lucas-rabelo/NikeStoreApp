@@ -14,10 +14,10 @@ import TabRoutes from './tab.routes';
 
 export type ScreensProps = {
     Home: undefined;
-    // Preload: undefined;
-    // SignIn: undefined;
-    // Register: undefined;
-    // ForgotPassword: undefined;
+    Preload: undefined;
+    SignIn: undefined;
+    Register: undefined;
+    ForgotPassword: undefined;
     Profile: undefined;
     Cart: undefined;
     ListProducts: undefined;

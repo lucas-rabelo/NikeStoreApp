@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { AntDesign } from '@expo/vector-icons';
 
 export const Container = styled.View`
     width: 100%;
@@ -29,4 +30,28 @@ export const Subtitle = styled.Text`
     font-family: ${({ theme }) => theme.fonts.subtitle}
     opacity: .5;
     text-decoration: underline;
+`;
+
+export const OtherSignInArea = styled.View`
+    flex-direction: row;
+    margin: ${RFValue(25)}px ${RFValue(70)}px;
+
+    justify-content: space-between;
+`;
+
+export const ButtonIcon = styled.TouchableOpacity`
+    padding: ${RFValue(10)}px;
+    border-radius: ${RFPercentage(10)}px;
+
+    border: .5px solid ${({ theme }) => theme.colors.primary};
+
+    background-color: ${({ theme }) => theme.colors.background};
+`;
+
+export const GoogleIcon = styled(AntDesign)`
+    font-size: ${RFValue(28)}px;
+`;
+
+export const FacebookIcon = styled(AntDesign)`
+    font-size: ${RFValue(28)}px;
 `;
