@@ -6,6 +6,9 @@ import { NavigationScreenProps } from '../../../routes/stack.routes';
 import { Button } from '../../Controllers/Button'
 import { Input } from '../../Controllers/Input'
 
+// hook
+import { useAuth } from '../../../hooks/auth';
+
 // styles
 import {
     Container,
@@ -15,12 +18,11 @@ import {
 
 export function ForgotForm() {
 
-    const navigation = useNavigation<NavigationScreenProps>();
-
+    const { handleForgotPassword } = useAuth();
     const [email, setEmail] = useState<string>('');
 
-    function handleSubmitForm() {
-        navigation.navigate('Preload');
+    async function handleSubmitForm() {
+        await handleForgotPassword(email);
     }
 
     return (
@@ -36,7 +38,7 @@ export function ForgotForm() {
                 <ButtonArea>
                     <Button
                         type='dark'
-                        label="Save"
+                        label="Send email"
                         activeOpacity={.7}
                         onPress={handleSubmitForm}
                     />

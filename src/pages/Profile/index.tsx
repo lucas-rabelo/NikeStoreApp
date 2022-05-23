@@ -37,9 +37,9 @@ export function Profile() {
             <Content>
                 <Options>
                     {OPTIONS.map(option => (
-                        <Option 
+                        <Option
                             key={option.id}
-                            onPress={() => {}}
+                            onPress={() => { }}
                             activeOpacity={.8}
                         >
                             <Icon name={option.icon} />
@@ -48,14 +48,6 @@ export function Profile() {
                     ))}
                 </Options>
             </Content>
-            <Footer>
-                <Button 
-                    type="dark"
-                    label="Log-out"
-                    activeOpacity={.8}
-                    onPress={() => {}}
-                />
-            </Footer>
         </Container>
     );
 }

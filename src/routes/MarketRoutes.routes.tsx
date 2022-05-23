@@ -6,7 +6,7 @@ import { SignIn } from '../pages/SignIn';
 import { Register } from '../pages/Register';
 import { ForgotPassword } from '../pages/ForgotPassword';
 
-import theme from '..//global/styles/theme';
+import theme from '../global/styles/theme';
 
 export type ScreensProps = {
     Preload: undefined;

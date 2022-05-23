@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { NavigationScreenProps, ScreensProps } from '../../../routes/stack.routes';
+
 
 // components
 import { Button } from '../../Controllers/Button'
 import { Input } from '../../Controllers/Input'
+
+// hook
+import { useAuth } from '../../../hooks/auth';
+
+// NavigationProps 
+import { NavigationScreenProps } from '../../../routes/AuthRoutes.routes';
+
 
 // styles
 import {
@@ -25,11 +32,18 @@ export function SignInForm() {
 
     const navigation = useNavigation<NavigationScreenProps>();
 
+    const { handleSignIn } = useAuth();
+
     const [email, setEmail] = useState<string>('');
     const [pass, setPass] = useState<string>('');
 
-    function handleSubmitForm() {
-        navigation.navigate('Home');
+    async function handleSubmitForm() {
+        if (email && pass) {
+            await handleSignIn(email, pass);
+        }
+        else {
+            Alert.alert("Aviso", "Para efetuar login deve preencher todos os campos");
+        }
     }
 
     function handleForgotPassword() {

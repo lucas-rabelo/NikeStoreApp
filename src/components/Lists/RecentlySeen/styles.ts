@@ -14,5 +14,5 @@ export const Container = styled(
 })`
     margin-top: ${RFValue(15)}px;
     margin-horizontal: ${RFValue(25)}px;
-    height: ${RFPercentage(60)}px;
+    height: ${RFPercentage(70)}px;
 `;

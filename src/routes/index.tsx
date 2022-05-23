@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import StackRoutes from './stack.routes';
-import StackNotSignedRoutes from './stackSigned.routes';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+
+import AuthRoutes from './AuthRoutes.routes';
+import MarketRoutes from './stack.routes';
 
 import { useAuth } from '../hooks/auth';
 
 export function Routes() {
 
-    const { user } = useAuth();
+    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(setUser);
+
+        return subscriber;
+    }, []);
 
     return (
         <NavigationContainer>
-            {!user.token ? <StackNotSignedRoutes /> : <StackRoutes />}
+            {user ? <MarketRoutes /> : <AuthRoutes />}
         </NavigationContainer>
     )
 }

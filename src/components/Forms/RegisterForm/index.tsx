@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-// props
-import { NavigationScreenProps, ScreensProps } from '../../../routes/stack.routes';
+import { Alert } from 'react-native';
+import { useAuth } from '../../../hooks/auth';
 
 // components
 import { Button } from '../../Controllers/Button'
@@ -18,32 +15,36 @@ import {
 
 export function RegisterForm() {
 
-    const navigation = useNavigation<NavigationScreenProps>();
+    const { handleRegisterOnApp } = useAuth();
 
-    const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [pass, setPass] = useState<string>('');
     const [confirm, setConfirm] = useState<string>('');
 
-    function handleSubmitForm() {
-        navigation.navigate('SignIn');
+    async function handleSubmitForm() {
+        if (pass === confirm) {
+            await handleRegisterOnApp(email, pass);
+        }
+        else {
+            Alert.alert("Aviso", "As senhas são diferentes");
+        }
     }
 
     return (
         <Container>
             <Content>
-                <Input
+                {/* <Input
                     icon='user'
                     placeholder='Enter your name'
                     onChangeText={setName}
                     value={name}
-                />
+                /> */}
                 <Input
                     icon='mail'
                     placeholder='Enter your email'
                     keyboardType='email-address'
                     onChangeText={setEmail}
-                    value={email}
+                // value={email}
                 />
                 <Input
                     icon='lock'
@@ -51,7 +52,7 @@ export function RegisterForm() {
                     secureTextEntry={true}
                     autoCapitalize="none"
                     onChangeText={setPass}
-                    value={pass}
+                // value={pass}
                 />
                 <Input
                     icon='lock'

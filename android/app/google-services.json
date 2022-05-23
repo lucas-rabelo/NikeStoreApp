@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904683569088",
+    "project_id": "nikestoreapp",
+    "storage_bucket": "nikestoreapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904683569088:android:6c23d9526202f9b6fad225",
+        "android_client_info": {
+          "package_name": "com.nikestoreapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904683569088-r8469b54im4nf823dpm024h3nqh4tvbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbcMoJoevyVfET_UZoJwKrg37gLM12UpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904683569088-r8469b54im4nf823dpm024h3nqh4tvbs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

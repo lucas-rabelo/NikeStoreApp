@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 // components
+import { Header } from '../../components/Layouts/Header';
 import { Card } from '../../components/Controllers/Card';
 import { InputSearch } from '../../components/Controllers/InputSearch';
 import { RecentlySeen } from '../../components/Lists/RecentlySeen';
 import { CategorySelect } from '../../components/Lists/CategorySelect';
+
 
 // styles
 import {
@@ -33,14 +35,15 @@ export function Home() {
     return (
         <Container>
             <Content>
-                <InputSearch
+                <Header />
+                {/* <InputSearch
                     onChangeText={(t) => setSearch(t)}
                     value={search}
                     onPress={handleOpenModalFilter}
                 />
-                <Card 
+                <Card
                     flag="visa"
-                />
+                /> */}
                 <CategorySelect
                     categorySelected={category}
                     setCategory={handleSelectCategory}

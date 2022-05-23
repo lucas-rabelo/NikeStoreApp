@@ -15,6 +15,7 @@ import theme from './src/global/styles/theme';
 import Routes from './src/routes';
 import TabRoutes from './src/routes/tab.routes';
 import { AuthProvider } from './src/hooks/auth';
+import { StatusBar } from 'react-native';
 
 export default function App() {
 
@@ -29,10 +30,16 @@ export default function App() {
         <AppLoading />
     }
     return (
-        <ThemeProvider theme={theme}>
-            <AuthProvider>
-                <Routes />
-            </AuthProvider>
-        </ThemeProvider>
+        <>
+            <StatusBar
+                backgroundColor="black"
+                translucent
+            />
+            <ThemeProvider theme={theme}>
+                <AuthProvider>
+                    <Routes />
+                </AuthProvider>
+            </ThemeProvider>
+        </>
     );
 }
